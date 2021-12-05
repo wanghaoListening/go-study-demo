@@ -5,8 +5,7 @@ import (
 	"time"
 )
 
-func main() {
-
+func timeExe() {
 	now := time.Now()
 	fmt.Println(now.Year())
 	fmt.Println(now.Month())
