@@ -8,45 +8,33 @@ import (
 	"os"
 )
 
-
-
-func main() {
-
-	//readFileFromByIOUtil()
-
-	///writeFileFromByIOUtil()
-
-	useBuff()
-}
-
-func useBuff()  {
+func useBuff() {
 
 	var s string
 
 	reader := bufio.NewReader(os.Stdin)
 
 	fmt.Println("请输入内容")
-	s,_ = reader.ReadString('\n')
-	fmt.Printf("你输入的内容%s",s)
+	s, _ = reader.ReadString('\n')
+	fmt.Printf("你输入的内容%s", s)
 }
 
-
-func writeFileFromByIOUtil()  {
+func writeFileFromByIOUtil() {
 
 	name := "bjtu"
-	err := ioutil.WriteFile("./exe.txt",[]byte(name),0666)
-	if err != nil{
+	err := ioutil.WriteFile("./exe.txt", []byte(name), 0666)
+	if err != nil {
 		fmt.Println("write file failed")
 		return
 	}
 }
 
-func writeFileFromBuffer()  {
+func writeFileFromBuffer() {
 
-	fileObj ,err := os.OpenFile("./exe.txt",os.O_CREATE|os.O_APPEND|os.O_WRONLY,0644)
+	fileObj, err := os.OpenFile("./exe.txt", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0644)
 
-	if err != nil{
-		fmt.Printf("open file failed,err:%v",err)
+	if err != nil {
+		fmt.Printf("open file failed,err:%v", err)
 		return
 	}
 
@@ -54,37 +42,36 @@ func writeFileFromBuffer()  {
 
 	writer := bufio.NewWriter(fileObj)
 
-	writer.WriteString("hello ,北京")//将数据写入缓存
-	writer.Flush()//将缓存的内容写入文件
+	writer.WriteString("hello ,北京") //将数据写入缓存
+	writer.Flush()                  //将缓存的内容写入文件
 }
 
-func writeFile()  {
+func writeFile() {
 
-	fileObj ,err := os.OpenFile("./exe.txt",os.O_CREATE|os.O_APPEND|os.O_WRONLY,0644)
+	fileObj, err := os.OpenFile("./exe.txt", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0644)
 
-	if err != nil{
-		fmt.Printf("open file failed,err:%v",err)
+	if err != nil {
+		fmt.Printf("open file failed,err:%v", err)
 		return
 	}
 
 	fileObj.WriteString("你好，世界 ，hello world")
 
-
 }
 
-func readFileFromByIOUtil()  {
+func readFileFromByIOUtil() {
 
-	ret,err := ioutil.ReadFile("/Users/bytedance/dev/code/demo_code/demo/Demo.go")
+	ret, err := ioutil.ReadFile("/Users/bytedance/dev/code/demo_code/demo/Demo.go")
 	if err != nil {
 		fmt.Println("read file failed")
 	}
-	if err == io.EOF{
+	if err == io.EOF {
 		fmt.Println("end")
 	}
 	fmt.Println(string(ret))
 }
 
-func readFileFromBuffer()  {
+func readFileFromBuffer() {
 
 	fileObj, err := os.Open("/Users/bytedance/dev/code/demo_code/demo/Demo.go")
 	if err != nil {
@@ -96,13 +83,13 @@ func readFileFromBuffer()  {
 
 	reader := bufio.NewReader(fileObj)
 
-	for  {
-		line,err := reader.ReadString('\n')
-		if err != nil{
+	for {
+		line, err := reader.ReadString('\n')
+		if err != nil {
 			fmt.Printf("read line failed,err:%v\n", err)
 			return
 		}
-		if err == io.EOF{
+		if err == io.EOF {
 			return
 		}
 
@@ -111,7 +98,6 @@ func readFileFromBuffer()  {
 	}
 
 }
-
 
 func readFile() {
 	fileObj, err := os.Open("./Demo.go")
