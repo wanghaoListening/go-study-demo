@@ -36,6 +36,9 @@ func reflectVaklue(x interface{}) {
 func reflectSetValue1(x interface{}) {
 
 	v := reflect.ValueOf(x)
+	if v.IsNil() {
+		//判断指针是否为空
+	}
 
 	if v.Kind() == reflect.Int64 {
 		v.SetInt(300) //修改的是副本
@@ -48,6 +51,33 @@ func reflectSetValue2(x interface{}) {
 
 	if v.Elem().Kind() == reflect.Int64 {
 		v.Elem().SetInt(300)
+	}
+}
+
+type Teacher struct {
+	Name string `json:"name"`
+	Age  int    `json:"age"`
+}
+
+func reflectStruct() {
+
+	stu := Teacher{
+
+		Name: "banana",
+		Age:  23,
+	}
+
+	t := reflect.TypeOf(stu)
+	fmt.Println(t.Name(), t.Kind())
+
+	for i := 0; i < t.NumField(); i++ {
+
+		field := t.Field(i)
+		fmt.Printf("name:%s index:%d type:%v tag:%v \n", field.Name, field.Index, field.Type, field.Tag)
+	}
+
+	if field, ok := t.FieldByName("Name"); ok {
+		fmt.Printf("name:%s index:%d type:%v tag:%v \n", field.Name, field.Index, field.Type, field.Tag)
 	}
 }
 
@@ -69,4 +99,6 @@ func main() {
 
 	reflectSetValue2(&temp)
 	fmt.Println(temp)
+
+	reflectStruct()
 }
