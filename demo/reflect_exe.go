@@ -81,7 +81,7 @@ func reflectStruct() {
 	}
 }
 
-func main() {
+/*func main() {
 
 	var name string = "john"
 	reflectType(name)
@@ -102,3 +102,4 @@ func main() {
 
 	reflectStruct()
 }
+*/
