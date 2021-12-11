@@ -117,7 +117,7 @@ func loadIni(fileName string, data interface{}) error {
 	return nil
 }
 
-func main() {
+/*func main() {
 
 	var cfg Config
 	err := loadIni("/Users/bytedance/dev/code/demo_code/demo/conf.ini", &cfg)
@@ -127,4 +127,4 @@ func main() {
 	}
 
 	fmt.Printf("%#v", cfg)
-}
+}*/
