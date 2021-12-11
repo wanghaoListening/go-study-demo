@@ -10,7 +10,7 @@ func getPodName() (string, error) {
 	return "", fmt.Errorf("not found pod")
 }
 
-func main() {
+/*func main() {
 
 	addr, err := getPodName()
 
@@ -22,7 +22,7 @@ func main() {
 	str := "10.13.111.0"
 	fmt.Printf(transformIpv4(str))
 
-}
+}*/
 
 func transformIpv4(host string) string {
 	const count = 3
