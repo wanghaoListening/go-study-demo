@@ -75,6 +75,6 @@ func mainExecAdd() {
 	fmt.Println(x)
 }
 
-func main() {
+/*func main() {
 	mainExecAdd()
-}
+}*/
