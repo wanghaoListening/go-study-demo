@@ -12,7 +12,7 @@ func goHello() {
 	fmt.Println("hello go")
 }
 
-func main() {
+/*func main() {
 	//go goHello() //go 关键字开启一个goroutine
 
 	fmt.Println("hello yu")
@@ -22,7 +22,7 @@ func main() {
 
 	//runtime 相关
 	procExe()
-}
+}*/
 
 //wait group
 
