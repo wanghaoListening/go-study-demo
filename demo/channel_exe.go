@@ -74,8 +74,8 @@ func changeChannel() {
 
 //单向通道<-chan ,chan<-
 
-func main() {
+/*func main() {
 
 	//channelIni()
 	changeChannel()
-}
+}*/
