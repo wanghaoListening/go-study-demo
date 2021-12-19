@@ -73,6 +73,7 @@ func HttpClient() {
 		fmt.Println("new request failed", err)
 	}
 	resp, err := http.DefaultClient.Do(req)
+	defer resp.Body.Close()
 	if err != nil {
 		fmt.Println("client do failed")
 	}
